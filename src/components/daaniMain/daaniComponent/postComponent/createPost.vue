@@ -43,7 +43,7 @@
           <img
             src="https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt
-            style="height:40px;width:40px;border-radius:50%;object-fit:contain"
+            style="height:40px;width:40px;border-radius:50%;"
           />
         </div>
         <div class="d-flex flex-column" style="line-height:1.2rem">
