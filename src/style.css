@@ -31,7 +31,6 @@
   overflow-y: auto;
 }
 main{
-  padding-left: 250px;
   background: var(--tritery-color);
   height: 100vh;
   overflow-x:hidden;

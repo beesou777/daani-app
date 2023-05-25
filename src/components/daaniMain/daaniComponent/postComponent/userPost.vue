@@ -124,7 +124,7 @@
   return postStore.postList.length;
 }, (newLength, oldLength) => {
   if (newLength > oldLength) {
-    getPosts();
+    postStore.getPost()
   }
 });
 

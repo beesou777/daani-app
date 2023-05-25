@@ -27,11 +27,12 @@ export const usepostStore = defineStore('postStore', {
       try {
         const res = await axios.post('posts/', postData);
         const newPost = res.data;
-        this.postList.post(newPost);
+        this.postList.push(newPost);
       } catch (error) {
         console.log(error);
       }
     },
+    
     
 
     async updateLike(updatedData) {
