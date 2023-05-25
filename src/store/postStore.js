@@ -36,8 +36,7 @@ export const usepostStore = defineStore('postStore', {
 
     async updateLike(updatedData) {
       try {
-        const res = await axios.patch(`posts/${this.id}/`, updatedData);
-        console.log(res);
+        await axios.patch(`posts/${this.id}/`, updatedData);
         // Assuming the response contains the updated data, you can update the like count in the store
       } catch (error) {
         console.log(error);

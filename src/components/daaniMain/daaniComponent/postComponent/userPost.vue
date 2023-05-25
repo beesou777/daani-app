@@ -21,10 +21,10 @@
           </div>
         </div>
         <div class="content">
-          <p class="fs-6 px-3">{{ data.description }}</p>
+          <p class="fs-6 px-3 m-0">{{ data.description }}</p>
         </div>
-        <div class="img pt-3">
-          <img :src="data.image" alt="images" style="width:100%;aspect-ratio:2/1;border-radius:8px" />
+        <div class="img pt-2">
+          <img :src="data.image" alt="images" style="width:100%;aspect-ratio:2/1;border-radius:8px;object-fit:contain;" />
         </div>
         <div class="d-flex flex-row">
           <div class="like-section py-3">
@@ -90,6 +90,7 @@
     await postStore.getPost();
   };
 
+  
   const updateLike = (index, isIncrement) => {
     const postData = postStore.postList[index];
     postStore.id = postStore.postList[index].id;
@@ -100,10 +101,9 @@
       like: postData.like,
       isLikeClicked: postData.isLikeClicked,
     };
-JSON.stringify
+
     postStore.updateLike(updatedData);
   };
-
   const comment = ref(Array.from({ length: cardData.value?.length }, () => ""));
 
   // function to add comment
@@ -121,12 +121,13 @@ JSON.stringify
   };
 
   watch(() => {
-    return postStore.postList;
-  }, (newPosts) => {
-    if (newPosts) {
-      getPosts();
-    }
-  });
+  return postStore.postList.length;
+}, (newLength, oldLength) => {
+  if (newLength > oldLength) {
+    getPosts();
+  }
+});
+
 </script>
 
 
