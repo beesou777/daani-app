@@ -10,12 +10,12 @@
         <div class="d-flex px-2 py-2 align-items-center">
           <div class="img pe-2">
             <img
-              src="https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=600"
+              :src="data.profile_image"
               alt
               style="height:40px;width:40px;border-radius:50%"
             />
           </div>
-          <div class="profile d-flex flex-column align-items-center" style="line-height:1.2rem">
+          <div class="profile d-flex flex-column align-items-start" style="line-height:1.2rem">
             <p class="title text-dark fs-5 m-0">{{ data.profile_name }}</p>
             <p class="title m-0">{{ data.categories }}</p>
           </div>
@@ -71,10 +71,12 @@
   import { usepostStore } from "../../../../store/postStore";
   import { useRouter } from "vue-router";
   import CreatePost from "./createPost.vue";
+import {useAuthStore} from "../../../../store/authLogin"
 
   // variables
   const postStore = usepostStore();
   const router = useRouter();
+  const authStore = useAuthStore()
 
   const cardData = computed(() => {
   const reversedPosts = [...postStore.postList];
@@ -84,8 +86,16 @@
 
   onMounted(() => {
     getPosts();
+    authStore.getUser()
   });
 
+  watch(()=>{
+    if(authStore.authUser?.length == 0){
+      authStore.getUser()
+      return authStore.authUser
+    }
+  })
+ 
   const getPosts = async () => {
     await postStore.getPost();
   };

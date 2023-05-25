@@ -1,7 +1,10 @@
 <template>
   <div class="container-fluid b-primary py-3 px-4 border-bottom position-fixed" style="background:#fff;z-index:9">
-    <div class="back-button">
+    <div class="back-button d-flex align-items-center gap-5">
       <i class="fas fa-bars medium" @click="hideSideNav"></i>
+    <div class="text-center">
+      <p class="m-0 t-primary">In case while you upload post if image is not upload then upload small side images</p>
+    </div>
     </div>
   </div>
 </template>

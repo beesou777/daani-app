@@ -11,10 +11,6 @@ export const usepostStore = defineStore('postStore', {
   }),
 
   actions: {
-    saveLikes() {
-      localStorage.setItem('postList', JSON.stringify(this.postList));
-    },
-
     async getPost() {
       try {
         const res = await axios.get('posts/')

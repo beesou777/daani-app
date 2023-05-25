@@ -9,6 +9,7 @@ import axios from "axios";
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     authUser:null,
+    userUUID: JSON.parse(localStorage.getItem("userUUID")) || null
   }),
   getters: {
     is_auth: (state) => !!state.authUser,
@@ -20,7 +21,8 @@ export const useAuthStore = defineStore('auth', {
       try {
         const response = await axios.post("/login",data)
         if(response.data){
-          localStorage.setItem("userUUID",JSON.stringify(response.data))
+          this.userUUID = response.data.uuid
+          localStorage.setItem("userUUID",JSON.stringify(response.data.uuid))
         }
         router.push('/')
       } catch (error) {
@@ -28,7 +30,16 @@ export const useAuthStore = defineStore('auth', {
         // handle the error here
       }
     },    
-
+    async getUser() {
+      try {
+        const response = await axios.get(`/users/${this.userUUID}`)
+       this.authUser = response.data
+        router.push('/')
+      } catch (error) {
+        console.log(error)
+        // handle the error here
+      }
+    },    
     // when a user is logined then store the access token in localstorage in api.js
     
     // register user
