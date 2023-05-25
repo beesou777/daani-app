@@ -70,7 +70,7 @@
             <img :src="userData.image" alt style="height:40px;width:40px;border-radius:50%;" />
           </div>
           <div class="d-flex flex-column" style="line-height:1.2rem">
-            <p class="medium m-0">{{ userData.name }}</p>
+            <p class="small m-0">{{ userData.name }}</p>
             <p class="fw-normal text-muted m-0">Daani user</p>
           </div>
         </div>
