@@ -7,6 +7,10 @@ import singlePost from '../components/daaniMain/daaniComponent/postComponent/sin
 import createPost from '../components/daaniMain/daaniComponent/postComponent/createPost.vue'
 
 
+// auth
+import register from "../view/Register.vue"
+import login from "../view/Login.vue"
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -27,6 +31,16 @@ const router = createRouter({
             // {path: 'privacypolicy', name: 'privacy-policy', component:PrivacyPolicy},
             // {path: 'contactus', name: 'contact-us', component:ContactUs}
         ] 
+        },
+        {
+            path:'/register',
+            name:'register',
+            component:register
+        },
+        {
+            path:'/login',
+            name:'login',
+            component:login
         },
 
           

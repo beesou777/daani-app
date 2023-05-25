@@ -47,8 +47,8 @@
           />
         </div>
         <div class="d-flex flex-column" style="line-height:1.2rem">
-          <p class="medium">John</p>
-          <p class="fw-normal text-muted">Daani user</p>
+          <p class="medium m-0">John</p>
+          <p class="fw-normal text-muted m-0">Daani user</p>
         </div>
       </div>
       <div class="search col-lg-5 col-md-12 col-sm-12">

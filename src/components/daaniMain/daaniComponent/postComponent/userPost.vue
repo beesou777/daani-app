@@ -1,7 +1,7 @@
 <template>
   <div class=" b-primary pb-5">
    <CreatePost/>
-    <div class="row pb-5 container ">
+    <div class="row pb-5 container " style="background:#fff;min-height:100vh">
       <div
         class="container rounded-4 p-3 px-lg-5"
         v-for="(data, index) in cardData"
@@ -15,9 +15,9 @@
               style="height:40px;width:40px;border-radius:50%"
             />
           </div>
-          <div class="profile d-flex flex-column" style="line-height:1.2rem">
-            <p class="title text-dark fs-5">{{ data.profile_name }}</p>
-            <p class="title">{{ data.categories }}</p>
+          <div class="profile d-flex flex-column align-items-center" style="line-height:1.2rem">
+            <p class="title text-dark fs-5 m-0">{{ data.profile_name }}</p>
+            <p class="title m-0">{{ data.categories }}</p>
           </div>
         </div>
         <div class="content">
@@ -70,19 +70,25 @@
   import { computed, onMounted, ref, watch } from "vue";
   import { usepostStore } from "../../../../store/postStore";
   import { useRouter } from "vue-router";
-import CreatePost from "./createPost.vue";
+  import CreatePost from "./createPost.vue";
 
   // variables
   const postStore = usepostStore();
   const router = useRouter();
 
-
-const cardData = computed(() => {
-  return postStore.matching == null ? postStore.postList : postStore.matching
+  const cardData = computed(() => {
+  const reversedPosts = [...postStore.postList];
+  return postStore.matching == null ? reversedPosts : postStore.matching;
 });
+
+
   onMounted(() => {
-    postStore.getPost();
+    getPosts();
   });
+
+  const getPosts = async () => {
+    await postStore.getPost();
+  };
 
   const updateLike = (index, isIncrement) => {
     const postData = postStore.postList[index];
@@ -94,7 +100,7 @@ const cardData = computed(() => {
       like: postData.like,
       isLikeClicked: postData.isLikeClicked,
     };
-
+JSON.stringify
     postStore.updateLike(updatedData);
   };
 
@@ -103,7 +109,7 @@ const cardData = computed(() => {
   // function to add comment
   const addComment = (index) => {
     const data = {
-      "product-id":index,
+      "product-id": index,
       username: "admin",
       image:
         "https://images.pexels.com/photos/1667088/pexels-photo-1667088.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -114,10 +120,15 @@ const cardData = computed(() => {
     comment.value[index] = ""; // Reset the comment for the given index
   };
 
-  watch(()=>{
-    postStore.getPost()
-  })
+  watch(() => {
+    return postStore.postList;
+  }, (newPosts) => {
+    if (newPosts) {
+      getPosts();
+    }
+  });
 </script>
+
 
 <style scoped>
   .hover {

@@ -74,7 +74,7 @@ a{
 }
 
 .b-secondary{
-  background-color: var(--primary-color);
+  background: var(--primary-color);
 }
 
 .t-color{
