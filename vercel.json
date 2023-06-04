@@ -1,6 +1,9 @@
 {
   "routes": [
     { "src": "/login", "dest": "/index.html" },
-    { "src": "/register", "dest": "/index.html" }
+    { "src": "/register", "dest": "/index.html" },
+    { "src": "/dashboard", "dest": "/index.html" },
+    { "src": "/dashboard/product/add", "dest": "/index.html" }
+    { "src": "/dashboard/product/edit", "dest": "/index.html" }
   ]
 }
