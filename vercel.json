@@ -7,7 +7,7 @@
     { "src": "/dashboard/product/add", "dest": "/index.html" },
     { "src": "/dashboard/product/add/", "dest": "/index.html" },
     { "src": "/dashboard/product/add/", "dest": "/index.html" },
-    { "src": "/dashboard/product/edit/:id", "dest": "/index.html" },
-    { "src": "/dashboard/product/edit/:id/", "dest": "/index.html" }
+    { "src": "/dashboard/product/edit/([^/]+)", "dest": "/index.html" },
+    { "src": "/dashboard/product/edit/([^/]+)/", "dest": "/index.html" }
   ]
 }
