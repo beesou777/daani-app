@@ -14,15 +14,19 @@ export const usepostStore = defineStore('postStore', {
     async getPost() {
       try {
         const res = await axios.get('posts/')
-        this.postList = res.data;
+        this.postList = res.data.posts;
       } catch (error) {
         console.log(error);
       }
     },
-    async post(postData) {
+    async addPost(data) {
       try {
-        const res = await axios.post('posts/', postData);
-        const newPost = res.data;
+        const headers = {
+          'Content-Type': 'application/json',
+        };
+    
+        const res = await axios.post('/posts', data,{ headers });
+        const newPost = res.data.post;
         this.postList.push(newPost);
       } catch (error) {
         console.log(error);

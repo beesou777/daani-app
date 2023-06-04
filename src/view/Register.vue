@@ -102,7 +102,7 @@ import {useAuthStore} from "../store/authLogin"
 const username = ref("");
 const password = ref("");
 const name = ref("");
-const phone = ref();
+const phone = ref("");
 const userStore = useAuthStore();
 
 // methods to register user

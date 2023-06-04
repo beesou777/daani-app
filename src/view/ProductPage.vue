@@ -1,8 +1,7 @@
 
 <template>
     <div>
-        <!-- Blog Navbar -->
-        <SideNavbar/>
+        <Navbar/>
        <div>
         <router-view/>
        </div>
@@ -12,8 +11,9 @@
 
 
 <script setup>
+import Navbar from '../components/daaniMain/common/Navbar.vue';
+
 // Blog Navbar
-import SideNavbar from "../components/daaniMain/common/SideBar.vue"
 
 
 </script>

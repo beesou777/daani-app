@@ -21,7 +21,7 @@
 
 
 .sideNav{
-  background:var(--secondary-color);
+  background:var(--primary-color);
   width: 250px;
   position: fixed;
   left: 0;
@@ -33,6 +33,7 @@
 main{
   background: var(--tritery-color);
   height: 100vh;
+  padding-left: 250px;
   overflow-x:hidden;
 }
 
