@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="card my-3">
-      <button @click="sendDataApi" class="b-secondary py-2 border-0 text-light fs-5">{{ currentRouter !== "/dashboard/product/add" ? "Edit Product" : "Add Product" }}</button>
+      <button @click="sendDataApi" class="b-secondary py-2 border-0 text-light fs-5">{{ currentRouter !== "/dashboard/product/add" ? "Add Product" : "Edit Product" }}</button>
     </div>
   </div>
 </template>
@@ -74,7 +74,8 @@ async function sendDataApi() {
       } else {
         formData.append("product_image", productStore.productID.product_image);
       }
-
+      formData.append("feature", props.data.feature);
+      formData.append("discounted_price", props.data.discounted_price);
       formData.append("product_name", props.data.product_name);
       formData.append("product_categorie", props.data.product_categorie);
       formData.append("regular_price", props.data.regular_price);
@@ -89,7 +90,8 @@ async function sendDataApi() {
       const formData = new FormData();
       const imageBlob = new Blob([file.value]);
       formData.append("product_image", imageBlob, file.value.name);
-
+      formData.append("feature",props.data.feature);
+      formData.append("discounted_price",props.data.discounted_price);
       formData.append("product_name", props.data.product_name);
       formData.append("product_categorie", props.data.product_categorie);
       formData.append("regular_price", props.data.regular_price);

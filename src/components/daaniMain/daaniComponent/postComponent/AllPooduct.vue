@@ -1,5 +1,5 @@
 <template>
-    <div class="product mx-5 py-3">
+    <div class="product mx-5 py-5">
         <div class="title">
             <h2>All Products</h2>
         </div>
@@ -15,9 +15,9 @@
                 <div class="content py-2 px-1">
                         <h5 class="m-0">{{ data.product_name }}</h5>
                         <p class="py-0 m-0">{{ data.product_categorie }}</p>
-                        <div class="d-flex">
-                            <p>NPR {{ data.regular_price }}</p>
-                            <p v-if="data.discounted_price !== 0">{{ data.discounted_price }}</p>
+                        <div class="d-flex gap-2">
+                            <h4>NPR {{ data.regular_price }}</h4>
+                            <p v-if="data.discounted_price !== 0" class="text-decoration-line-through">{{ data.discounted_price }}</p>
                         </div>
                         <div class="buttons">
                             <button class="btn btn-danger" >
