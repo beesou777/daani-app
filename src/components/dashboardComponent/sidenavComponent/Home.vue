@@ -1,6 +1,5 @@
 <template>
   <div>
-    <topnav/>
   <div class="container">
     <div class="row ">
       <div class="col-md-3">
@@ -104,7 +103,6 @@
 <script setup>
 // imports
 import { ref } from "vue";
-import topnav from "../navbar/TopNav.vue";
 import VisitStore from "./HomeComponent/VisitStore.vue";
 
 </script>
